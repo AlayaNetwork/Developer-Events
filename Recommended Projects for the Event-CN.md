@@ -33,7 +33,6 @@
 
 https://learnblockchain.cn/article/2006  
 
-https://simpleaswater.com/ethereum-developer-tools-list/
 
 #### 以太坊主流Dapp：
 
