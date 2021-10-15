@@ -1,6 +1,6 @@
 # Community Verification Event for the Ethereum-compatible Version of PlatON and Alaya
 
-[[中文]]()
+[[中文]](https://github.com/AlayaNetwork/Developer-Events/blob/main/README-CN.md)
 
 ## Background
 
@@ -121,11 +121,11 @@ During this event, the migration of Ethereum DApps and the verification of Ether
 Resources related to the Alaya development network 
 
 - Alaya document: https://alaya.network/alaya-devdocs/en/ 
-- Join the Alaya development network: https://alaya.network/alaya-devdocs/zh-CN/Join_the_dev_network
+- Join the Alaya development network: https://alaya.network/alaya-devdocs/en/Join_the_dev_network
 - Alaya development network blockchain explorer: https://devnetscan.alaya.network/
 - Alaya development network faucet: https://faucet.alaya.network/faucet/?id=f93426c0887f11eb83b900163e06151c
-- Samurai (explorer plug-in wallet): https://alaya.network/alaya-devdocs/zh-CN/Samurai_user_manual
-- PlatON Studio(IDE)：https://alaya.network/alaya-devdocs/zh-CN/IDE
+- Samurai (explorer plug-in wallet): https://alaya.network/alaya-devdocs/en/Samurai_user_manual
+- PlatON Studio(IDE)：https://alaya.network/alaya-devdocs/en/IDE
 
 
 
