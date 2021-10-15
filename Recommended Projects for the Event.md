@@ -35,8 +35,6 @@ We recommend the migration of open-source DApps or base components in the Ethere
 
 #### Ethereum development tools:
 
-https://learnblockchain.cn/article/2006  
-
 https://simpleaswater.com/ethereum-developer-tools-list/
 
 
@@ -45,7 +43,7 @@ https://simpleaswater.com/ethereum-developer-tools-list/
 
 **DeFi**
 
-- [UniswapV3](https://github.com/rebase-network/Dapp-Learning/blob/main/defi/Uniswap-V3/readme.md)
+- [UniswapV3](https://github.com/GammaStrategies/awesome-uniswap-v3)
 - [Compound](https://github.com/compound-developers)
 - [Aave](https://docs.aave.com/portal/)
 - [SNX](https://github.com/Synthetixio) 
