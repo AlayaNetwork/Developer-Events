@@ -110,7 +110,7 @@ Distribution of rewards: **Before November 18, 2021**
 
 During this event, the migration of Ethereum DApps and the verification of Ethereum development tools need to be conducted on the Alaya development network. Please set up a local environment that complies with the requirements of the Alaya development network.
 
-#### Alaya development network
+### Alaya development network
 
 > Chain ID ：201030   
 >
@@ -129,7 +129,7 @@ Resources related to the Alaya development network
 
 
 
-#### Compatibility constraint
+### Compatibility constraint
 
 **In terms of Solidity, the PlatON/Alaya network differs from Ethereum in the following aspects, which may require adjustments (as appropriate) when adopting Ethereum development tools in the network or when migrating Ethereum applications onto PlatON/Alaya.**
 
