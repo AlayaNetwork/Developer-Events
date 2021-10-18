@@ -140,12 +140,12 @@ Resources related to the Alaya development network
 
 
 
-**:confetti_ball: There will be ongoing developer events for this type of application and tool migration in the future, so stay tuned and participate.**
-
-
 ## Contact
 
 For help or support, you can ask for support at [Discord](https://discord.gg/jAjFzJ3Cff) 、[Telegram](https://t.me/joinchat/LhO63AsZ_iozZGNl) or [Forum](https://forum.latticex.foundation/).
+
+**:confetti_ball: There will be ongoing developer events for this type of application and tool migration in the future, so stay tuned and participate.**
+
 
 ## License
 
