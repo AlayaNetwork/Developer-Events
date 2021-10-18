@@ -1,6 +1,6 @@
 # PlatON|Alaya 以太坊兼容版本社区验证活动
 
-[[英文]](https://github.com/AlayaNetwork/Developer-Events)
+[[English]](https://github.com/AlayaNetwork/Developer-Events)
 
 ## 背景
 
