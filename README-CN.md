@@ -1,4 +1,4 @@
-# PlatON|Alaya 以太坊兼容版本社区验证活动
+# PlatON|Alaya 以太坊兼容版本社区验证活动(一期)
 
 [[English]](https://github.com/AlayaNetwork/Developer-Events)
 
@@ -145,7 +145,7 @@ Alaya开发网资源
 
 如需帮助或支持，请加入我们的开发者社区[Discord](https://discord.gg/jAjFzJ3Cff)、[Telegram](https://t.me/joinchat/LhO63AsZ_iozZGNl)或[Forum](https://forum.latticex.foundation/)。
 
-
+🎊 未来将持续举办该类应用和工具移植的开发者活动，欢迎关注和参与。
 
 ## License
 
