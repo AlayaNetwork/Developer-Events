@@ -1,4 +1,4 @@
-# Community Verification Event for the Ethereum-compatible Version of PlatON and Alaya
+# Community Verification Event for the Ethereum-compatible Version of PlatON and Alaya（First）
 
 [[中文]](https://github.com/AlayaNetwork/Developer-Events/blob/main/README-CN.md)
 
@@ -138,6 +138,9 @@ Resources related to the Alaya development network
 - The format of account address: PlatON and Alaya support EIP55 as well as Bech32.
 - The version of the Solidity compiler: The latest version of PlatON/Alaya now supports Solidity 0.8.6.
 
+
+
+**:confetti_ball: There will be ongoing developer events for this type of application and tool migration in the future, so stay tuned and participate.**
 
 
 ## Contact
