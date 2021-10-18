@@ -84,7 +84,7 @@ Participants will receive delivery rewards for the ultimate submission of the mi
 
 ## Term of the event
 
-Open for participation： **from October 18, 2021 to November 14, 2021**
+Open for participation： **from October 19, 2021 to November 14, 2021**
 
 Distribution of rewards: **Before November 18, 2021**
 
