@@ -4,6 +4,7 @@
 
 The event targets experienced blockchain developers, and an appropriate understanding is required regarding the basic tools and know-how involved in the development of Ethereum DApps.
 
+For a quick overview of how to do an ethereum DApp migration on the Alaya dev web, please refer to: https://alaya.network/alaya-devdocs/en/DApp_migrate/
 
 
 ## Beginner
