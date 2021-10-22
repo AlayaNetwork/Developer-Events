@@ -10,11 +10,11 @@
 
 
 
-## 活动概述
+ ## 活动概述:balloon:
 
-本次活动将在PlatON的先行网 **Alaya开发网**（已升级到Alaya0.16.1版本）上开展，任何感兴趣的社区开发者或团队都可以参加，没有参与门槛限制。
+本次活动将在**PlatON开发网**和 **Alaya开发网**上开展，任何感兴趣的社区开发者或团队都可以参加，没有参与门槛限制。
 
-开发者可以通过将以太坊生态内各种类型DApp或智能合约示例移植到Alaya开发网络上，以此验证整个移植开发过程中PlatON网络对各项以太坊生态工具/资源的兼容性与可用性（包含使用的Alaya生态开发工具），反馈发现的问题并尝试解决，并输出DApp、智能合约、开发工具的移植操作指南（文档或视频形式），包含已适配Alaya网络的DApp移植代码/开发工具。
+开发者可以通过将以太坊生态内各种类型DApp或智能合约示例移植到PlatON|Alaya开发网络上，以此验证整个移植开发过程中PlatON网络对各项以太坊生态工具/资源的兼容性与可用性（包含使用的PlatON|Alaya生态开发工具），反馈发现的问题并尝试解决，并输出DApp、智能合约、开发工具的移植操作指南（文档或视频形式），包含已适配PlatON|Alaya网络的DApp移植代码/开发工具。
 
 想要获取更多灵感，请查看 [Recommended Projects for the Event](https://github.com/AlayaNetwork/Developer-Events/blob/main/Recommended%20Projects%20for%20the%20Event-CN.md)。
 
@@ -24,7 +24,7 @@
 
 本次活动所有过程将在GitHub上以公开透明的方式开展。
 
-**【活动报名】**
+**【活动报名】:triangular_flag_on_post:**
 
 参与报名的用户，请先进入本次活动的[GitHub仓库](https://github.com/AlayaNetwork/Developer-Events)，通过Issue方式提交您的报名信息。
 
@@ -40,6 +40,7 @@
 > - 计划完成时间：
 > - 预计交付内容：
 > - 联系方式：
+> - LAT地址（PlatON主网LAT账户地址，用于接收奖励）：
 
 **参考示例**：
 
@@ -58,6 +59,8 @@
 > 预计交付内容：Unis移植文档教程，视频指导教程，Uniswap移植前端代码和合约代码
 >
 > 联系方式：https://t.me/Boneybi
+> 
+> LAT地址（PlatON主网LAT账户地址，用于接收奖励）：lat1ld5wj7sds2fp0dqf0dgfmyd44j6n5n4s6z295f
 
 *注：提交报名前，请查阅所有已报名Issue，避免与其他用户移植或验证相同的DApp应用或工具，本活动仅采纳和奖励最早且有效交付的前2位用户。*
 
@@ -83,7 +86,7 @@
 
 
 
-## 活动时间
+## 活动时间:alarm_clock: 
 
 参与时间：**2021/10/19~2021/11/14**
 
@@ -109,7 +112,7 @@
 
 ## 注意事项
 
-本次活动所有以太坊DApp移植和开发工具验证需要在Alaya开发网络上进行，请注意配置Alaya开发网的网络环境。
+本次活动所有以太坊DApp移植和开发工具验证需要在PlatON开发网和Alaya开发网络上进行，请注意配置对应开发网的网络环境。
 
 #### Alaya开发网
 
@@ -128,6 +131,20 @@ Alaya开发网资源
 - Samurai（浏览器钱包插件）：https://alaya.network/alaya-devdocs/zh-CN/Samurai_user_manual
 - PlatON Studio(IDE)：https://alaya.network/alaya-devdocs/zh-CN/IDE
 
+#### PlatON开发网
+> Chain ID ：210309   
+>
+> RPC URL：http://35.247.155.162:6789  Or  ws://35.247.155.162:6790
+>
+> Currency Symbol：LAT
+
+PlatON开发网资源
+
+- PlatON文档: https://devdocs.platon.network/docs/en/
+- PlatON Github: https://github.com/PlatONnetwork
+- PlatON开发网接入：https://devdocs.platon.network/docs/en/Join_Dev_Network/
+- PlatON开发网区块链浏览器: https://devnetscan.platon.network/
+- Alaya开发网水龙头：https://faucet.platon.network/faucet/?id=e5d32df10aee11ec911142010a667c03
 
 
 #### 兼容性约束
