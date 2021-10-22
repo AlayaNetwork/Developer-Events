@@ -2,6 +2,7 @@
 
 [[中文]](https://github.com/AlayaNetwork/Developer-Events/blob/main/README-CN.md)
 
+
 ## Background
 
 PlatON 1.1.1 and Alaya 0.16.1 will be fully compatible with Ethereum development tools to lower the cost of development and learning for developers who are participating in the network building of PlatON and Alaya. Relying on the many well-established tools and resources now available in the Ethereum ecosystem, developers can quickly expand their applications and engage in innovation on the PlatON and Alaya network that features privacy-preserving properties, high performance, and low service fees.
@@ -10,11 +11,11 @@ We will hold a one-month developer event for the adoption of Ethereum developmen
 
 
 
-## Overview
+## Overview :balloon:
 
-Hosted on the **Alaya development network** (updated to version 0.16.1), PlatON’s pilot network, the event will be open to all community developers or teams who are interested, without any threshold.
+Hosted on the **PlatON Dev-Network** and **Alaya Dev-Network** (PlatON’s pilot network), the event will be open to all community developers or teams who are interested, without any threshold.
 
-By migrating all kinds of DApps or smart contract samples in the Ethereum ecosystem onto the Alaya development network, developers can verify the compatibility and availability of the PlatON network in relation to the Ethereum development tools/resources during the entire process of migration and development (including the Alaya development tools used in this process). They can also submit and try to solve the problems they found and produce migration guides (document or video) for DApps, smart contracts, and development tools, including DApp migration codes/development tools that have already been adjusted for the Alaya network.
+By migrating all kinds of DApps or smart contract samples in the Ethereum ecosystem onto the PlatON|Alaya development network, developers can verify the compatibility and availability of the PlatON network in relation to the Ethereum development tools/resources during the entire process of migration and development (including the PlatON|Alaya development tools used in this process). They can also submit and try to solve the problems they found and produce migration guides (document or video) for DApps, smart contracts, and development tools, including DApp migration codes/development tools that have already been adjusted for the PlatON|Alaya network.
 
 To get more inspirations, take a look at [Recommended Projects for the Event](https://github.com/AlayaNetwork/Developer-Events/blob/main/Recommended%20Projects%20for%20the%20Event.md).
 
@@ -23,7 +24,7 @@ To get more inspirations, take a look at [Recommended Projects for the Event](ht
 
 The whole process of the event will be conducted on GitHub in an open and transparent manner.
 
-**[Sign up for the event]**
+**[Sign up for the event]:triangular_flag_on_post:**
 
 Before signing up for the event, please go to the [GitHub Repository](https://github.com/AlayaNetwork/Developer-Events) of the event and submit the relevant information through Issue.
 
@@ -39,6 +40,7 @@ Standard application format:
 > - Scheduled completion date:
 > - The expected content of delivery:
 > - Contact info:
+> - LAT address (PlatON main network LAT account address for receiving rewards):
 
 **Sample:**
 
@@ -57,6 +59,8 @@ Standard application format:
 > The expected content of delivery: Document and video guides for Unis migration and the front-end code and contract code of Uniswap
 >
 > Contact info: https://t.me/Boneybi
+> 
+> LAT address (PlatON main network LAT account address for receiving rewards): lat1ld5wj7sds2fp0dqf0dgfmyd44j6n5n4s6z295f
 
 *Note: Before signing up, please check the Issue of other participants, so that you will not be migrating or verifying the same DApp or development tool. Where the same DApp or development tool has been submitted, only the first two submissions (by valid delivery) will be approved and rewarded.*
 
@@ -82,7 +86,7 @@ Participants will receive delivery rewards for the ultimate submission of the mi
 
 
 
-## Term of the event
+## Term of the event :alarm_clock: 
 
 Open for participation： **from October 19, 2021 to November 14, 2021**
 
@@ -108,7 +112,7 @@ Distribution of rewards: **Before November 18, 2021**
 
 ## Notice
 
-During this event, the migration of Ethereum DApps and the verification of Ethereum development tools need to be conducted on the Alaya development network. Please set up a local environment that complies with the requirements of the Alaya development network.
+During this event, the migration of Ethereum DApps and the verification of Ethereum development tools need to be conducted on the PlatON|Alaya development network. Please set up a local environment that complies with the requirements of the PlatON|Alaya development network.
 
 ### Alaya development network
 
@@ -127,6 +131,20 @@ Resources related to the Alaya development network
 - Samurai (explorer plug-in wallet): https://alaya.network/alaya-devdocs/en/Samurai_user_manual
 - PlatON Studio(IDE)：https://alaya.network/alaya-devdocs/en/IDE
 
+### PlatON development network
+> Chain ID ：210309   
+>
+> RPC URL：http://35.247.155.162:6789  Or  ws://35.247.155.162:6790
+>
+> Currency Symbol：LAT
+
+Resources related to the PlatON development network 
+
+- PlatON document: https://devdocs.platon.network/docs/en/
+- PlatON Github: https://github.com/PlatONnetwork
+- Join the PlatON development network：https://devdocs.platon.network/docs/en/Join_Dev_Network/
+- PlatON development network blockchain explorer: https://devnetscan.platon.network/
+- PlatON development network faucet：https://faucet.platon.network/faucet/?id=e5d32df10aee11ec911142010a667c03
 
 
 ### Compatibility constraint
