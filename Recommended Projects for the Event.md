@@ -28,7 +28,7 @@ For beginners who are interested in blockchain development, we recommend the fol
 
 ## Experienced developer
 
-If you are experienced in the development of Ethereum contracts or Dapps, you can go ahead and connect the relevant Ethereum development tool with the Alaya development network for verification.
+If you are experienced in the development of Ethereum contracts or Dapps, you can go ahead and connect the relevant Ethereum development tool with the PlatON | Alaya development network for verification.
 
 We recommend the migration of open-source DApps or base components in the Ethereum ecosystem for verifying the availability and compatibility of all the tools, resources, and documents involved in the entire process of DApp development. During this process, participants are encouraged to find and fix bugs and make adjustments for the PlatON/Alaya network.
 
