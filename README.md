@@ -28,7 +28,7 @@ Event time: **2021/10/19~2021/11/14**
 
 ## Contact Us
 
-For help or support, please join our developer community on [Discord](https://discord.gg/jAjFzJ3Cff), [Telegram](https://t.me/joinchat/LhO63AsZ_iozZGNl) or [Forum](https ://forum.latticex.foundation/).
+For help or support, please join our developer community on [Discord](https://discord.gg/jAjFzJ3Cff), [Telegram](https://t.me/joinchat/LhO63AsZ_iozZGNl) or [Forum](https://forum.latticex.foundation/).
 
 
 
