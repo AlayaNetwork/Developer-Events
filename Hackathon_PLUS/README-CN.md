@@ -10,7 +10,7 @@
 
 ## 活动概述
 
- 本次「黑客松PLUS」将与 “PlatON|Alaya 以太坊兼容版本社区验证活动(一期)“  协同开展。所有[首届PlatON黑客松的项目团队和个人](https://hackerlink.io/grant/Alaya/1)都可以报名参与。
+ 本次「黑客松PLUS」将与 “[PlatON|Alaya 以太坊兼容版本社区验证活动(一期)](https://github.com/AlayaNetwork/Developer-Events/blob/main/README-CN.md)“  协同开展。所有[首届PlatON黑客松的项目团队和个人](https://hackerlink.io/grant/Alaya/1)都可以报名参与。
 
 参与报名的项目团队/个人可以在PlatON|Alaya开发网络上继续完成黑客松项目新功能、新想法的开发，优化和落地工作。也可以参与“PlatON|Alaya 以太坊兼容版本社区验证活动(一期)“ ，进行以太坊生态优秀DApp、开发工具的迁移适配改造工作。
 
