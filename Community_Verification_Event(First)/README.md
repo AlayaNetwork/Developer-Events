@@ -17,7 +17,7 @@ Hosted on the **PlatON Dev-Network** and **Alaya Dev-Network** (PlatON’s pilot
 
 By migrating all kinds of DApps or smart contract samples in the Ethereum ecosystem onto the PlatON|Alaya development network, developers can verify the compatibility and availability of the PlatON network in relation to the Ethereum development tools/resources during the entire process of migration and development (including the PlatON|Alaya development tools used in this process). They can also submit and try to solve the problems they found and produce migration guides (document or video) for DApps, smart contracts, and development tools, including DApp migration codes/development tools that have already been adjusted for the PlatON|Alaya network.
 
-To get more inspirations, take a look at [Recommended Projects for the Event](https://github.com/AlayaNetwork/Developer-Events/blob/main/Community_Verification_Event(First)/Recommended%20Projects%20for%20the%20Event.md).
+To get more inspirations, take a look at [Recommended Projects for the Event](https://github.com/AlayaNetwork/Developer-Events/blob/main/Community_Verification_Event(First)/Recommended%20Projects%20for%20the%20Event-CN.md).
 
 
 ## How to join the event
