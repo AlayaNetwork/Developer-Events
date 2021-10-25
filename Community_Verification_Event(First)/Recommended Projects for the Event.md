@@ -1,4 +1,4 @@
-[[中文]](https://github.com/AlayaNetwork/Developer-Events/blob/main/Recommended%20Projects%20for%20the%20Event-CN.md)
+[[中文]](https://github.com/AlayaNetwork/Developer-Events/blob/main/Community_Verification_Event(First)/Recommended%20Projects%20for%20the%20Event-CN.md)
 
 # Recommended Projects for the Event
 
