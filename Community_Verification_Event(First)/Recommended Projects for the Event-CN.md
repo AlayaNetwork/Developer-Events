@@ -1,4 +1,4 @@
-[[English]](https://github.com/AlayaNetwork/Developer-Events/blob/main/Recommended%20Projects%20for%20the%20Event.md)
+[[English]](https://github.com/AlayaNetwork/Developer-Events/blob/main/Community_Verification_Event(First)/Recommended%20Projects%20for%20the%20Event.md)
 
 # 活动报名项目推荐列表
 
