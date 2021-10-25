@@ -1,6 +1,6 @@
 # PlatON黑客松PLUS ！百万美金项目激励
 
-[English]()
+[[English]](https://github.com/AlayaNetwork/Developer-Events/blob/main/Hackathon_PLUS/README.md)
 
 接棒第一届PlatON黑客松，「黑客松PLUS」如疾风般来临。
 
