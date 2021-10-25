@@ -20,9 +20,9 @@ Event time: **2021/10/19~2021/11/14**
 
 
 
-### [PlatON Hackathon PLUS! One-Million-Dollar Project Incentive Program](https://github.com/AlayaNetwork/Developer-Events/blob/main/Hackathon_PLUS/README.md)
+### [PlatON Hackathon PLUS! With $1 Million Project Incentives](https://github.com/AlayaNetwork/Developer-Events/blob/main/Hackathon_PLUS/README.md)
 
-"Hackathon PLUS" will provide an additional 1-million-dollar incentive program for the first batch of 31 hackathon project teams that participated in the ecosystem construction, as a gesture to encourage further development, research, and launch on PlatON as well as continued contributions to PlatON ecosystem construction and development events to expand PlatON's global presence.
+"Hackathon PLUS" will provide additional 1-million-dollar project incentives for the first batch of 31 hackathon project teams that participated in the ecosystem construction, as a gesture to encourage further development, research, and launch on PlatON as well as continued contributions to PlatON ecosystem construction and development events to expand PlatON's global presence.
 
 
 
