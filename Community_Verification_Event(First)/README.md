@@ -165,6 +165,3 @@ For help or support, you can ask for support at [Discord](https://discord.gg/jAj
 **:confetti_ball: There will be ongoing developer events for this type of application and tool migration in the future, so stay tuned and participate.**
 
 
-## License
-
-This event is licensed under the [MIT license](https://github.com/AlayaNetwork/Developer-Events/blob/main/LICENSE.md)
