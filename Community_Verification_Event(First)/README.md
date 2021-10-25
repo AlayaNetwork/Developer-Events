@@ -26,7 +26,7 @@ The whole process of the event will be conducted on GitHub in an open and transp
 
 **[Sign up for the event]:triangular_flag_on_post:**
 
-Before signing up for the event, please go to the [GitHub Repository](https://github.com/AlayaNetwork/Developer-Events) of the event and submit the relevant information through Issue.
+Before signing up for the event, please go to the [GitHub Repository](https://github.com/AlayaNetwork/Developer-Events/issues) of the event and submit the relevant information through Issue.
 
 Standard application format:
 
