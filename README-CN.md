@@ -1,6 +1,6 @@
 # Developer-Events
 
-[English]()
+[[English]](https://github.com/AlayaNetwork/Developer-Events)
 
 PlatON作为开源技术社区，PlatON一直致力于开发者社区的建设和支持。
 
