@@ -1,6 +1,6 @@
 # PlatON|Alaya 以太坊兼容版本社区验证活动(一期)
 
-[[English]](https://github.com/AlayaNetwork/Developer-Events)
+[[English]](https://github.com/AlayaNetwork/Developer-Events/blob/main/Community_Verification_Event(First)/README.md)
 
 ## 背景
 
