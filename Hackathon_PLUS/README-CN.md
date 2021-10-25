@@ -18,7 +18,7 @@
 
 ## 活动报名🚩
 
-参与报名的首届黑客松项目团队/个人，请先进入本次活动的[GitHub仓库](https://github.com/AlayaNetwork/Developer-Events)，通过Issue方式提交您的报名信息。
+参与报名的首届黑客松项目团队/个人，请先进入本次活动的[GitHub仓库](https://github.com/AlayaNetwork/Developer-Events/issues)，通过Issue方式提交您的报名信息。
 
 报名信息规范：
 
