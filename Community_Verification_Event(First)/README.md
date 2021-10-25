@@ -1,6 +1,6 @@
 # Community Verification Event for the Ethereum-compatible Version of PlatON and Alaya（First）
 
-[[中文]](https://github.com/AlayaNetwork/Developer-Events/blob/main/README-CN.md)
+[[中文]](Developer-Events/blob/main/README-CN.md)
 
 
 ## Background
@@ -82,7 +82,7 @@ You can start the migration/verification process by forking a personal repositor
 
 Participants will receive delivery rewards for the ultimate submission of the migration guide (document or video) regarding the corresponding case/tool. Please make sure that your delivery is complete and available. That is, the guide submitted should be complete and the DApp migrated and the Ethereum development tool involved should be adjusted for the Alaya development network. Each delivery will be assessed by a professional team of reviewers.
 
-> Please submit your deliverables to this repository by PR, naming the file or folder with your `GitHub username - project name` and associating it with your sign-up Issue.
+> Please submit your deliverables via PR to this repository under `Developer-Events/Community_Verification_Event(First)/` folder, naming the file or folder with your `GitHub username - project name` and associating it with your sign-up Issue.
 
 
 
