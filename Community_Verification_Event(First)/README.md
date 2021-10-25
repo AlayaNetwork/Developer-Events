@@ -1,6 +1,6 @@
 # Community Verification Event for the Ethereum-compatible Version of PlatON and Alaya（First）
 
-[[中文]](./Community_Verification_Event(First)/README-CN.md)
+[[中文]](https://github.com/AlayaNetwork/Developer-Events/blob/main/Community_Verification_Event(First)/README-CN.md)
 
 
 ## Background
