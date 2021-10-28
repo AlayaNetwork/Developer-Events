@@ -14,7 +14,7 @@
 
 本次活动将在**PlatON开发网**和 **Alaya开发网**上开展，任何感兴趣的社区开发者或团队都可以参加，没有参与门槛限制。
 
-开发者可以通过将以太坊生态内各种类型DApp或智能合约示例移植到PlatON|Alaya开发网络上，以此验证整个移植开发过程中PlatON网络对各项以太坊生态工具/资源的兼容性与可用性（包含使用的PlatON|Alaya生态开发工具），反馈发现的问题并尝试解决，并输出DApp、智能合约、开发工具的移植操作指南（文档或视频形式），包含已适配PlatON|Alaya网络的DApp移植代码/开发工具。
+开发者可以通过将以太坊生态内各种类型DApp、开发工具或智能合约示例教程移植到PlatON|Alaya开发网络上，以此验证整个移植开发过程中PlatON网络对各项以太坊生态工具/资源的兼容性与可用性（包含使用的PlatON|Alaya生态开发工具），反馈发现的问题并尝试解决，并输出DApp、智能合约、开发工具的移植操作指南（文档或视频形式），包含已适配PlatON|Alaya网络的DApp移植代码/开发工具。
 
 想要获取更多灵感，请查看 [Recommended Projects for the Event](https://github.com/AlayaNetwork/Developer-Events/blob/main/Community_Verification_Event(First)/Recommended%20Projects%20for%20the%20Event-CN.md)。
 
