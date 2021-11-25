@@ -246,9 +246,9 @@ async function fund() {
         gas: "1000000", 
         nonce: nonce,
     };
-    // 签名交易
+    // sign
     let signTx = await web3js.platon.accounts.signTransaction(tx, PK);
-    // 发送交易
+    // send
     let receipt = await web3js.platon.sendSignedTransaction(signTx.rawTransaction);
     console.log("sign tx data:\n", signTx.rawTransaction, receipt)
 }
