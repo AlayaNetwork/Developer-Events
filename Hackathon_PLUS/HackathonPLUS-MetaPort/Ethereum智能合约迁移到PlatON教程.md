@@ -229,8 +229,7 @@ Summary
 
 <div align=center><img src="https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/1ENS%E6%89%80%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E5%90%88%E7%BA%A6.jpeg" width="  "></div>
 <div align=center>图1 ENS涉及到的合约</div>
-
-      
+&nbsp;
 
 ### 2.2 部署合约
 
@@ -238,24 +237,29 @@ Summary
 
 <div align=center><img src="https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/2%E9%80%89%E6%8B%A9%E6%89%80%E9%9C%80%E9%83%A8%E7%BD%B2%E7%9A%84%E5%90%88%E7%BA%A6.jpeg" width="  "></div>
 <div align=center>图2 选择所需部署的合约</div>
+&nbsp;
 
 <div align=center><img src="https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/3%E7%BC%96%E8%AF%91%E6%89%80%E9%9C%80%E9%83%A8%E7%BD%B2%E7%9A%84%E5%90%88%E7%BA%A6.jpeg" width="  "></div>
 <div align=center>图3 编译所需部署的合约</div>
+&nbsp;
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若编译成功，则进入Remix的部署界面，完成ENSRegistry合约的部署，如图4所示。部署时，首先将PlatON测试网RPC添加到MateMask中，通过私钥将LAT地址导入到MateMask中；其次，在Remix的deploy界面中将ENVIRONMENT设置为Injected Web3 ，并将CONTRACT设置为所需部署的合约；然后，点击Deploy可以设置该笔交易的Gas Price，如图5所示；最后，在MateMask中点击确认，便成功部署该合约。
 
 <div align=center><img src="https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/4%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2%E7%95%8C%E9%9D%A2.jpeg" width="  "></div>
 <div align=center>图4 合约部署界面</div>
+&nbsp;
 
 <div align=center><img src="https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/5%E8%B0%83%E6%95%B4%E4%BA%A4%E6%98%93Gas%20Price%E4%BB%B7%E6%A0%BC.jpeg" width="  "></div>
 <div align=center>图5 调整交易Gas Price价格</div>
+&nbsp;
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同理，使用Remix部署其余三个合约与部署`ENSRegistry.sol`方法一致。需额外注意的有三点。一是，如果合约通过`import "@PATH/contractName.sol"`导入其他合约，需要统一修改为`import "https://github.com/PATH/contractName.sol"`；二是，若导入合约所使用solidity版本与项目版本不一致，需修改solidity版本和因此导致的编译错误；三是，构造函数需要传参时，需在Deploy后面传入参数。入参大于一时，使用“,”分割，如图6所示。
 
 <div align=center><img src="https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82.jpeg" width="  "></div>
 <div align=center>图6 构造函数传参</div>
+&nbsp;
 
 
 ## 三、合约测试
@@ -296,6 +300,7 @@ async function test() {
 
 <div align=center><img src="https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/7Remix%E5%90%88%E7%BA%A6%E8%B0%83%E8%AF%95%E7%95%8C%E9%9D%A2.jpeg" width="  "></div>
 <div align=center>图7 Remix合约调试界面</div>
+&nbsp;
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至此，将ENS迁移到PlatON的整个流程介绍完毕。整个流程与在Ethereum上部署合约的体验一致，说明PlatON在兼容Ethereum生态方面已经足够成熟，将一步降低了Ethereum开发者在PlatON上的开发成本。期待，PlatON借助自身的隐私计算、AI方面的优势以及Ethereum强悍的生态，打造一更加强悍的生态，更好的服务于实体经济的发展。
 
