@@ -227,9 +227,8 @@ Summary
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过分析可知，迁移ENS需要部署四个智能合约。这四个合约分别位于`https://github.com/ensdomains/ens/tree/master/contracts`和`https://github.com/ensdomains/resolvers`内。首先进入`https://remix.ethereum.org/`将所有合约导入Remix中，如图1所示。
 
-![image](https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/1ENS%E6%89%80%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E5%90%88%E7%BA%A6.jpeg)
+<div align=center>![图1 ENS所涉及到的合约](https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/1ENS%E6%89%80%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E5%90%88%E7%BA%A6.jpeg)
 
-<center>图1 ENS所涉及到的合约</center>
 
 ### 2.2 部署合约
 
