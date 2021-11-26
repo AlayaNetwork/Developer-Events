@@ -246,10 +246,13 @@ Summary
 ![image](https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/4%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2%E7%95%8C%E9%9D%A2.jpeg)
 <center>图4 合约部署界面</center>
 
-![image]()https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/5%E8%B0%83%E6%95%B4%E4%BA%A4%E6%98%93Gas%20Price%E4%BB%B7%E6%A0%BC.jpeg
+
+![image](https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/5%E8%B0%83%E6%95%B4%E4%BA%A4%E6%98%93Gas%20Price%E4%BB%B7%E6%A0%BC.jpeg)
 <center>图5 调整交易Gas Price价格</center>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;同理，使用Remix部署其余三个合约与部署`ENSRegistry.sol`方法一致。需额外注意的有三点。一是，如果合约通过`import "@PATH/contractName.sol"`导入其他合约，需要统一修改为`import "https://github.com/PATH/contractName.sol"`；二是，若导入合约所使用solidity版本与项目版本不一致，需修改solidity版本和因此导致的编译错误；三是，构造函数需要传参时，需在Deploy后面传入参数。入参大于一时，使用“,”分割，如图6所示。
+
+
 ![image](https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82.jpeg)
 <center>图6 构造函数传参</center>
 ## 三、合约测试
