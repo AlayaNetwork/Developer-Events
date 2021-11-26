@@ -255,6 +255,7 @@ Summary
 
 ![image](https://github.com/MetaPort-DID/Developer-Events/blob/main/Hackathon_PLUS/HackathonPLUS-MetaPort/IMG/6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82.jpeg)
 <center>图6 构造函数传参</center>
+
 ## 三、合约测试
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果使用Truffle部署合约，可以使用Web3对部署的合约进行调试。首先，通过`npm install web3`安装web3包。由于项目需要调试的内容比较多，本文只介绍测试程序的主要框架。
