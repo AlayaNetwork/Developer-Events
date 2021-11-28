@@ -1,3 +1,13 @@
+# Overview
+
+Chainlink is not just a contract, but also a work node, a management background and a client. This is true for all projects, with on-chain contracts, you also need a client developed using the SDK.
+
+Since PlatON and Ethereum are both running EVM, contract migration is not a major issue. However, the non-contract part is very difficult to migrate due to the different SDK. The issues I encountered while migrating Chainlink included address incompatibilities, code inconsistencies, and code missing.
+
+If the code of the project to be migrated needs to be changed, it will be very difficult to migrate because the Ethereum ecosystem project doesn't know much about PlatON's code, which can be detrimental to the introduction of the Ethereum ecosystem. If PlatON is to be fully compatible with Ethereum, then it should be in sync with Ethereum, at least in terms of node functionality and interfaces.
+
+If this is done, the migration process for Ethereum projects will be very simple.
+
 # Preparation
 
 ## Source Code
@@ -10,10 +20,6 @@
 
 [https://github.com/smartcontractkit/truffle-starter-kit](https://github.com/smartcontractkit/truffle-starter-kit)
 
-**LinkToken**
-
-[https://github.com/smartcontractkit/LinkToken](https://github.com/smartcontractkit/LinkToken)
-
 ## Environment
 
 **OS**
@@ -22,9 +28,15 @@ ubuntu 18.04
 
 **Software**
 
-platon-truffle
+truffle 5.4
 
-node 12.18
+node 12.20
+
+go 1.17
+
+metamask
+
+platon devnetscan
 
 **Chain**
 
@@ -36,47 +48,7 @@ Prepare a funded account for testing
 
 # Migration
 
-## Deploy LinkToken
-
-**Create Project**
-
-Create a new platon-truffle project
-
-```plain
-mkdir linktoken
-cd linktoken
-platon-truffle init
-```
-
-**Create Contract**
-
-Copy LinkToken.sol from [https://github.com/smartcontractkit/LinkToken/blob/master/contracts-flat/v0.6/LinkToken.sol](https://github.com/smartcontractkit/LinkToken/blob/master/contracts-flat/v0.6/LinkToken.sol) into contracts directory
-
-*If you use platon-truffle of version 1.0.0, you must change address(0) to address(uint160(0)), or you will get compile errors.
-
-**Change Configuration**
-
-Configure the truffle-config.js file, because link contracts are almost ^0.6.6, and platon-truffle support compiler version 0.6.12, so we change compiler version to 0.6.12.
-
-```plain
-compilers: {
-    solc: {
-      version: '0.6.12',
-    },
-  },
-```
-Don't forget to configure networks, you can to go [https://devdocs.platon.network/docs/en/Solidity_Dev_Manual](https://devdocs.platon.network/docs/en/Solidity_Dev_Manual) for help.
-**Deploy contract**
-
-```plain
-platon-truffle migrate
-```
-Address of the contract is
-```plain
-lat1nsfwaseyy2f6hgycsdj33myhzadctuz0459ztl
-```
-*Repo:[https://github.com/hthuang996/PlatONLink](https://github.com/hthuang996/PlatONLink)
-## Deploy MyOracle
+## Deploy Contracts
 
 **Clone Repo**
 
@@ -92,99 +64,94 @@ git clone https://github.com/smartcontractkit/truffle-starter-kit.git
 npm install
 ```
 *You probably encounter a network error when mirroring a github repository, you can use an offshore server.
-Remove dependency truffle
+**Change Migration File**
+
+Change 3_price_consumer_v3.js as below
 
 ```plain
-rm -rf node_modules/@truffle
-rm -rf node_modules/@trufflesuite
-```
+const PriceConsumerV3 = artifacts.require('PriceConsumerV3')
+const KOVAN_ETH_USD_PRICE_FEED = '0x9326BFA02ADD2366b30bacB125260Af641031331'
 
-Delete all files in migrations directory except for 1_initial_migration.js.
+module.exports = async (deployer, network, [defaultAccount]) => {
+    // Local (development) networks need their own deployment of the LINK
+    // token and the Oracle contract
 
-**Create Contract**
-
-Create a new contract named MyOracle.sol
-
-```plain
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.6.6;
-import "@chainlink/contracts/src/v0.6/Oracle.sol";
-
-contract MyOracle is Oracle {
-    constructor(address _link) Oracle(_link)
-    public
-  {
-    
-  }
+    // currently hardcoded for Kovan
+    if (!network.startsWith('kovan')) {
+        console.log("only for Kovan right now!")
+    }
+    else {
+        let priceFeedAddress = KOVAN_ETH_USD_PRICE_FEED
+        try {
+            await deployer.deploy(PriceConsumerV3, KOVAN_ETH_USD_PRICE_FEED, { from: defaultAccount })
+        } catch (err) {
+            console.error(err)
+        }
+    }
 }
 ```
-*If you use platon-truffle of version 1.0.0, you must change address(0) to address(uint160(0)) of *.sol in contracts, @chainlink/contracts/src/v0.6 and @openzeppelin
-**Add Migration File**
 
-Create a file named 2_oracle.js
-
-```plain
-const Oracle = artifacts.require('MyOracle')
-
-module.exports = deployer => {
-  deployer.deploy(Oracle, '<TOKEN_ADDRESS>')
-}
-```
-You should replace <TOKEN_ADDRESS> with the deployed token address.
 **Change Configuration**
 
-Configure truffle-config.js, add a network named platon, and delete other networks, change solc version to 0.6.12
+Configure truffle-config.js, add a network named platon
 
 ```plain
-module.exports = {
-  networks: {
-    development: {
-      host: '35.247.155.162',
-      port: 6789,
-      from: 'lat127rmxxmql7vhy6pjtlz4wga7qukx6g78wcwdge',
-      network_id: '*'
-    },
-  },
-  compilers: {
-    solc: {
-      version: '0.6.12',
-    },
-  },
-}
+platon: {
+      provider: () => {
+        return new HDWalletProvider(mnemonic, url)
+      },
+      network_id: '1',
+      skipDryRun: true
+},
 ```
 
+**Add Environment Variable**
+
+Add a file named .env in the project root path
+
+```plain
+MNEMONIC="<PRIVATE_KEY>"
+RPC_URL="http://35.247.155.162:6789"
+```
+<PRIVATE_KEY> is the private key of an funded account.
 **Deploy Contract**
 
 ```plain
-platon-truffle migrate --network development
-```
-Address of the contract is
-```plain
-lat1qj0xtgxp7frjyv52ss2lk6xvxsjuhkcft429cv
+truffle migrate --network platon
 ```
 
-## **Deploy MyContract**
+Addresses of the contracts are
 
-**Add Migration File**
-
-Add a file named 3_mycontract_migration.js in migrations directory
+LinkToken
 
 ```plain
-const MyContract = artifacts.require('MyContract')
-
-module.exports = async (deployer, network, [defaultAccount]) => {
-  deployer.deploy(MyContract, '<ORACLE_ADDRESS>')
-}
+0xD42F9740853D5549f050a3E8A9A12ee353b43039
 ```
-You should replace <ORACLE_ADDRESS> with deployed MyOracle address.
-**Deploy Contract**
+Oracle
+```plain
+0xF84b4D410A6CB732898aeefBc09b0839fBb2cc39
+```
+MyContract
+```plain
+0xf8fC3d4D59b3f0e38d6c5874Fe2594BC05E87eD9
+```
+
+You can see the address format is not PlatON's format. We can get PlatON format addresses on the PlatON Dev Scan.
+
+The corresponding addresses are
+
+LinkToken
 
 ```plain
-platon-truffle migrate --network development
+lat16shewsy98425nuzs5052ngfwudfmgvpe9ygjav
 ```
-Address of the contract is
+Oracle
 ```plain
-lat176tlwz75ykuv03yf4jp0cawqn2ulkw8kfdpe7z
+lat1lp956sg2djmn9zv2amaupxcg88am9npelyhqyw
+```
+MyContract
+```plain
+lat1lr7r6n2ek0cw8rtvtp60ufv5hsz7slke6nhq0k
 ```
 
 ## Off-Chain Node
@@ -201,133 +168,252 @@ core/chains/evm/config/chain_specific_config.go
 
 ```plain
 platon := mainnet
-platon.linkContractAddress = "<LINK_TOKEN_ADDRESS>"
+platon.linkContractAddress = "0xD42F9740853D5549f050a3E8A9A12ee353b43039"
 chainSpecificConfigDefaultSets[210309] = platon
 ```
-core/services/keystore/keys/ethkey/address.go
-```plain
-// address := common.HexToAddress(s)
-// if s != address.Hex() {
-//      return EIP55Address(""), fmt.Errorf(`"%s" is not a valid EIP55 formatted address`, s)
-// }
-```
-
+Note that linkContractAddress is Ethereum format.
 **Install And Run**
 
 Refer [https://github.com/smartcontractkit/chainlink](https://github.com/smartcontractkit/chainlink).README.md
 
+First, you must install go and postgres.
+
+Then execute the command
+
+```plain
+make install
+```
+
+After chainlink is generated, configure the .env file
+
+```plain
+ETH_URL=ws://35.247.155.162:6790
+DATABASE_URL=postgresql://postgres:postgres@127.0.0.1:5432/postgres?sslmode=disable
+ETH_CHAIN_ID=210309
+CHAINLINK_TLS_PORT=0
+LOG_LEVEL=debug
+SECURE_COOKIES=false
+ALLOW_ORIGINS=*
+```
+
+Start chainlink in the same directory as .env file.
+
+```plain
+chainlink node start
+```
+Meanwhile, you are required to set node password and manager account, just follow the prompt.
+# Fund
+
+We can use metamask to finish the job.
+
+## **Add Network**
+
+We must first add PlatON dev network to metamask.
+
+Click ***Add Network***, input data in these boxes.
+
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/1.png)
+
+
+
+## Import Account
+
+Import the private key of the prepared account
+
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/2.png)
+
+
+
+## Add LINK Token
+
+Click ***import tokens***, input the address of the LINK token contract
+
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/3.png)
+
+
+
+You can see the LINK token like this
+
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/4.png)
+
+## Fund MyContract Account
+
+Transfer 100 LINK to Oracle account
+
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/5.png)
+
+
+## Fund Node Address
+
+Visit Chainlink Operator web, you may replace the IP with your service ip.
+
+```plain
+http://127.0.0.1:6688/
+```
+Node address is
+```plain
+0xf921958C4FBE420b927Bd979004d4be3B7e92EA9
+```
+PlatON format
+```plain
+lat1lysetrz0hepqhynmm9usqn2tuwm7jt4fq7gysv
+```
+
+Login, click setting button, you can find your node address here
+
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/8.png)
+
+Transfer 10 LAT and 100 LINK to the address.
+
 # Run
 
-Code can be found at [https://github.com/hthuang996/platon-link-test](https://github.com/hthuang996/platon-link-test)
+## Start Node
 
-## Fund
-
-Before using the contract, you must fund the contract with LINK. Here, we transfer 100LINK to MyContract address.
+Execute the command in the same directory with .env
 
 ```plain
-let web3js = new web3('http://35.247.155.162:6789');
-const FROM = 'lat127rmxxmql7vhy6pjtlz4wga7qukx6g78wcwdge'
-const PK = '<PRIVATE_KEY_OF_FROM>'
+chainlink node start
+```
 
-async function fund() {
-    // abi of LINK token
-    let ABI = '[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"},{"indexed":false,"internalType":"bytes","name":"data","type":"bytes"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseApproval","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseApproval","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"transferAndCall","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"typeAndVersion","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"pure","type":"function","constant":true}]';
-    // address of LINK token
-    let ADDRESS = 'lat1nsfwaseyy2f6hgycsdj33myhzadctuz0459ztl'
+## Create Job
 
-    let nonce = web3.utils.numberToHex(await web3js.platon.getTransactionCount(FROM));
-    let contract = new web3js.platon.Contract(JSON.parse(ABI), ADDRESS, null);
-    let data = contract.methods["transfer"]('<MY_CONTRACT_ADDRESS>', '100000000000000000000').encodeABI();
-    let tx = {
-        from: FROM,
-        to: ADDRESS,
-        chainId: 210309,
-        data: data,
-        gas: "1000000", 
-        nonce: nonce,
-    };
-    // sign
-    let signTx = await web3js.platon.accounts.signTransaction(tx, PK);
-    // send
-    let receipt = await web3js.platon.sendSignedTransaction(signTx.rawTransaction);
-    console.log("sign tx data:\n", signTx.rawTransaction, receipt)
+Open Chainlink Operator, click ***Jobs*** -> ***New Job***
+
+```plain
+type = "directrequest"
+schemaVersion = 1
+name = "Get > Uint256"
+contractAddress = "0xF84b4D410A6CB732898aeefBc09b0839fBb2cc39"
+maxTaskDuration = "0s"
+observationSource = """
+    decode_log   [type="ethabidecodelog"
+                  abi="OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)"
+                  data="$(jobRun.logData)"
+                  topics="$(jobRun.logTopics)"]
+
+    decode_cbor  [type="cborparse" data="$(decode_log.data)"]
+    fetch        [type="http" method=GET url="$(decode_cbor.url)"]
+    parse        [type="jsonparse" path="$(decode_cbor.path)" data="$(fetch)"]
+    multiply     [type="multiply" input="$(parse)" times="$(decode_cbor.times)"]
+    encode_data  [type="ethabiencode" abi="(uint256 value)" data="{ \\"value\\": $(multiply) }"]
+    encode_tx    [type="ethabiencode"
+                  abi="fulfillOracleRequest(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes32 data)"
+                  data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\": $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_data)}"
+                  ]
+    submit_tx    [type="ethtx" to="0xF84b4D410A6CB732898aeefBc09b0839fBb2cc39" data="$(encode_tx)"]
+
+    decode_log -> decode_cbor -> fetch -> parse -> multiply-> encode_data -> encode_tx -> submit_tx
+"""
+
+```
+You should replace "0xF84b4D410A6CB732898aeefBc09b0839fBb2cc39" with the address of the Oracle contract you deployed.
+Click Create ***Job*** -> ***Definition***, you can see that there is an extra field
+
+```plain
+externalJobID = "47be208d-ecb3-4a2a-a24c-9bfb2770aff7"
+```
+ This is the job ID.
+## Set Permission
+
+*From now on, we will use the PlatON SDK for validation, hence use the lat address.
+
+After the node get the data you required, it will send a transaction to the Oracle contract, we must set permission for the node first.
+
+```plain
+async function authorize() {
+    let nonce = web3.utils.numberToHex(await web3js.platon.getTransactionCount(FROM));
+    let contract = new web3js.platon.Contract(JSON.parse(ORACLE_ABI), ORACLE_ADDRESS, null);
+    let data = contract.methods["setFulfillmentPermission"](NODE_ADDRESS, true).encodeABI();
+    let tx = {
+        from: FROM,
+        to: ORACLE_ADDRESS,
+        chainId: 210309,
+        data: data,
+        gas: "1000000", 
+        nonce: nonce,
+    };
+    // sign
+    let signTx = await web3js.platon.accounts.signTransaction(tx, PK);
+    // send
+    let receipt = await web3js.platon.sendSignedTransaction(signTx.rawTransaction);
+    console.log("sign tx data:\n", signTx.rawTransaction, receipt)
 }
 ```
-Replace <MY_CONTRACT_ADDRESS> with the deployed MyContract address.
-## Query
-
-Query if <MY_CONTRACT_ADDRESS> has LINK.
-
-```plain
-async function getBalance(addr) {
-    let ABI = '[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"},{"indexed":false,"internalType":"bytes","name":"data","type":"bytes"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseApproval","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseApproval","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"value","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"transferAndCall","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"typeAndVersion","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"pure","type":"function","constant":true}]';
-    let ADDRESS = 'lat1nsfwaseyy2f6hgycsdj33myhzadctuz0459ztl'
-    
-    let contract = new web3js.platon.Contract(JSON.parse(ABI), ADDRESS, null);
-    contract.methods["balanceOf"](addr).call(null, (error, result) => console.log(result));
-}
-
-getBalance('<MY_CONTRACT_ADDRESS>')
-```
-Output is
-```plain
-100000000000000000000
-```
+Call *authorize* function, if successful, the node is permitted to send transaction to Oracle contract.
 ## **Request**
 
 ```plain
-async function request() {
-    const ABI = '[{"inputs":[{"internalType":"address","name":"_link","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkCancelled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkFulfilled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkRequested","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[],"name":"data","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getChainlinkToken","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function","constant":true},{"inputs":[{"internalType":"address","name":"_oracle","type":"address"},{"internalType":"bytes32","name":"_jobId","type":"bytes32"},{"internalType":"uint256","name":"_payment","type":"uint256"},{"internalType":"string","name":"_url","type":"string"},{"internalType":"string","name":"_path","type":"string"},{"internalType":"int256","name":"_times","type":"int256"}],"name":"createRequestTo","outputs":[{"internalType":"bytes32","name":"requestId","type":"bytes32"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"_requestId","type":"bytes32"},{"internalType":"uint256","name":"_data","type":"uint256"}],"name":"fulfill","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdrawLink","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"_requestId","type":"bytes32"},{"internalType":"uint256","name":"_payment","type":"uint256"},{"internalType":"bytes4","name":"_callbackFunctionId","type":"bytes4"},{"internalType":"uint256","name":"_expiration","type":"uint256"}],"name":"cancelRequest","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-    const ADDRESS = 'lat176tlwz75ykuv03yf4jp0cawqn2ulkw8kfdpe7z';
-    const ORACLE_ADDRESS = 'lat1qj0xtgxp7frjyv52ss2lk6xvxsjuhkcft429cv';
-    const JOBID = web3.utils.toHex('145a9cce137642689456396d09ac8cbc');
-    const url =
-    'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,EUR,JPY'
-    const path = 'USD'
-    const times = 1;
-    const payment = web3.utils.toVon('1')
-    
-    let nonce = web3.utils.numberToHex(await web3js.platon.getTransactionCount(FROM));
-    let contract = new web3js.platon.Contract(JSON.parse(ABI), ADDRESS, null);
-    let data = contract.methods["createRequestTo"].apply(contract.methods, [ORACLE_ADDRESS, JOBID, payment, url, path, times]).encodeABI();
-    let tx = {
-        from: FROM,
-        to: ADDRESS,
-        chainId: 210309,
-        data: data,
-        gas: "1000000", 
-        nonce: nonce,
-    };
-    // sign
-    let signTx = await web3js.platon.accounts.signTransaction(tx, PK);
-    // send
-    let receipt = await web3js.platon.sendSignedTransaction(signTx.rawTransaction);
-    console.log("sign tx data:\n", signTx.rawTransaction, receipt)
+async function request() {
+    let nonce = web3.utils.numberToHex(await web3js.platon.getTransactionCount(FROM));
+    let contract = new web3js.platon.Contract(JSON.parse(MYCONTRACT_ABI), MYCONTRACT_ADDRESS, null);
+    let data = contract.methods["createRequestTo"].apply(contract.methods, [ORACLE_ADDRESS, JOBID, payment, url, path, times]).encodeABI();
+    let tx = {
+        from: FROM,
+        to: MYCONTRACT_ADDRESS,
+        chainId: 210309,
+        data: data,
+        gas: "1000000", 
+        nonce: nonce,
+    };
+    // sign
+    let signTx = await web3js.platon.accounts.signTransaction(tx, PK);
+    // send
+    let receipt = await web3js.platon.sendSignedTransaction(signTx.rawTransaction);
+    console.log("sign tx data:\n", signTx.rawTransaction, receipt)
 }
-
-request()
 ```
-
+Call *request* function, and make sure you send transaction successfully.
 ## Result
 
-```plain
-async function getFulfillData() {
-    let contract = new web3js.platon.Contract(JSON.parse(ABI), ADDRESS, null);
-    contract.methods.data().call(null, (error, result) => console.log(result));
-}
+**Node Log**
 
-getFulfillData()
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/6.png)
+
+You can see the node received a new task, and dealed with it.
+
+**Contract Status**
+
+Visit PlatON Dev Scan, query the Oracle contract address.
+
+You can see a transaction sent by node.
+
+![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/7.png)
+
+## 
+**Get **Data
+
+```plain
+async function getFulfillData() {
+    let contract = new web3js.platon.Contract(JSON.parse(MYCONTRACT_ABI), MYCONTRACT_ADDRESS, null);
+    contract.methods.data().call(null, (error, result) => console.log(result));
+}
 ```
 Output is
 ```plain
-0
+4095
 ```
 
-Program works well, so we can say the migration of contracts is successfully. But the result is not what we expected, that's a problem.
+This means that the contract has been able to retrieve data from the outside, and our migration has been successful.
 
-After debugging and checking the code, I found that the function of capturing logs did not work. That is most likely the problem with go-ethereum.
+# Conclusion
 
-Later, I will modify the node program to make it work on PlatON network, It's not an easy thing to do, but I think it's worth doing.
+As you can see from the migration process, when migrating Chainlink, we used Ethereum tools entirely, except for the block browser, and only modified the target network for deployment. For verification, we used the PlatON SDK and successfully verified that the deployed contracts and tools worked properly on PlatON.
+
+This migration process I think is optimal because for the Ethereum ecosystem, they don't need to pay much attention to PlatON's technical details. For PlatON developers, they can just use the tools provided by PlatON and use the portability of the project. All they need is a platon-formatted address.This migration process is the least cost and most efficient for both parties.
+
+# Appendix
+
+**Chainlink**
+
+[https://github.com/hthuang996/chainlink](https://github.com/hthuang996/chainlink)
+
+**truffle-starter-kit**
+
+[https://github.com/hthuang996/truffle-starter-kit](https://github.com/hthuang996/truffle-starter-kit)
+
+**platon-link-test**
+
+[https://github.com/hthuang996/platon-link-test](https://github.com/hthuang996/platon-link-test)
 
 # Reference
 
@@ -343,7 +429,7 @@ Later, I will modify the node program to make it work on PlatON network, It's no
 
 6.[https://github.com/smartcontractkit/truffle-starter-kit](https://github.com/smartcontractkit/truffle-starter-kit)
 
-
+7.[https://forum.latticex.foundation/t/topic/5831](https://forum.latticex.foundation/t/topic/5831)
 
 
 
