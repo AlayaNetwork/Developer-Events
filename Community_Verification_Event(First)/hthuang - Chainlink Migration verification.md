@@ -212,7 +212,7 @@ We must first add PlatON dev network to metamask.
 
 Click ***Add Network***, input data in these boxes.
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/1.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/1.png)
 
 
 
@@ -220,7 +220,7 @@ Click ***Add Network***, input data in these boxes.
 
 Import the private key of the prepared account
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/2.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/2.png)
 
 
 
@@ -228,19 +228,19 @@ Import the private key of the prepared account
 
 Click ***import tokens***, input the address of the LINK token contract
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/3.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/3.png)
 
 
 
 You can see the LINK token like this
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/4.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/4.png)
 
 ## Fund MyContract Account
 
 Transfer 100 LINK to Oracle account
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/5.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/5.png)
 
 
 ## Fund Node Address
@@ -261,7 +261,7 @@ lat1lysetrz0hepqhynmm9usqn2tuwm7jt4fq7gysv
 
 Login, click setting button, you can find your node address here
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/8.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/8.png)
 
 Transfer 10 LAT and 100 LINK to the address.
 
@@ -367,7 +367,7 @@ Call *request* function, and make sure you send transaction successfully.
 
 **Node Log**
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/6.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/6.png)
 
 You can see the node received a new task, and dealed with it.
 
@@ -377,7 +377,7 @@ Visit PlatON Dev Scan, query the Oracle contract address.
 
 You can see a transaction sent by node.
 
-![](https://github.com/hthuang996/platon-link-test/tree/main/imgs/7.png)
+![](https://github.com/hthuang996/platon-link-test/blob/main/imgs/7.png)
 
 ## 
 **Get **Data
