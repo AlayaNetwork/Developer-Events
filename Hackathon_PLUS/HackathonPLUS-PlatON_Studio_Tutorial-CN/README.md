@@ -1,4 +1,4 @@
-# PlatON Studio
+# 使用 PlatON Studio 开始你的 PlatON/Alaya 区块链编程之旅
 
 PlatON Studio 是一个帮助开发者快速开发 [PlatON](https://platon.network/) 智能合约的集成化开发环境，同时支持 [Alaya 先行网络](https://alaya.network) 和 [PlatON 主网络](https://platon.network) 上的合约开发、部署和调试。PlatON Studio 现已提供运行于 macOS、Windows 和 Linux 的桌面版。
 
