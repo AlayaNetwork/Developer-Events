@@ -11,6 +11,7 @@
 | 2. | Module 1: 2 | Work with PlatON team and finalise correct integration pattern for next stage of trusted computation, the output will be a design guide on how we will proceed to next milestone |
 
 ---
+
 <br/>
 
 ## Module 1: 1: Work on efficient design and deploy our core Data DEX contracts to PlatON EVM via our deployment pipeline
@@ -69,7 +70,9 @@
 
 <br/>
 <br/>
+
 ---
+
 <br/>
 
 ## Module 1: 2: Work with PlatON team and finalise correct integration pattern for next stage of trusted computation, the output will be a design guide on how we will proceed to next milestone
@@ -99,4 +102,6 @@
 - Unit Tests are available here: https://github.com/Itheum/itheumcore/blob/main/test/itheumcore-test.js
 - You can run the tests via the `npx hardhat watch tdd` command
 
+<br/>
 
+---
