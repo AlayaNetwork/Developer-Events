@@ -48,6 +48,17 @@
   <img src="./screenshots/2-Metamask-PlatON.png" width="700px">
 </p>
 
+PlatON testnet Metamask settings are here:
+
+```
+Network Name: PlatON Testnet
+New RPC URL: http://35.247.155.162:6789
+Chain ID: 210309
+Currency Symbol(Optional): LAT
+Block Explorer URL(Optional): https://devnetscan.platon.network/
+
+```
+
 <br/>
 
 3) You are now logged in and can use all the features of the Itheum Data DEX on the PlatON chain:
