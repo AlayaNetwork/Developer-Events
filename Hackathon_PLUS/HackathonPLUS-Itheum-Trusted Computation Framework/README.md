@@ -25,34 +25,49 @@
 
 ### Operation / user guide
 
-<br/>
-
 1) Visit https://datadex.itheum.com/
 
+<br/>
+
 2) You will see that PlatON testnet chain support has been enabled:
+
+<br/>
 
 <p align="center">
   <img src="./screenshots/1-Login-with-PlatON.png" width="400px">
 </p>
 
+<br/>
+
 3) Login with your Metamask wallet:
+
+<br/>
 
 <p align="center">
   <img src="./screenshots/2-Metamask-PlatON.png" width="700px">
 </p>
 
+<br/>
+
 3) You are no logged in and can use all the features of the Itheum Data DEX on the PlatON chain:
+
+<br/>
 
 <p align="center">
   <img src="./screenshots/3-Home-Screen-with-PlatON-Linked.png" width="700px">
 </p>
 
+<br/>
+
 4) For a detailed walk-though on all the features (Faucet, Sell Data, Buy Data, Data NFT etc), please view the walkthrough demo video here: https://youtu.be/5t1e6tSqJ6U?t=220
+
+<br/>
 
 <p align="center">
   <img src="./screenshots/4-DemoVideo.png" width="700px">
 </p>
 
+<br/>
 <br/>
 ---
 <br/>
