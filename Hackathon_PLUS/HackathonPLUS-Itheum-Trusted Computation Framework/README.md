@@ -18,9 +18,9 @@
 
 <br/>
 
-- This been delivered and is fully functional and the `beta link` is here: https://datadex.itheum.com/
-- Itheum <> PLatON Integration explanation video: https://www.youtube.com/watch?v=5t1e6tSqJ6U 
-- PlatON Wallet based login live demo video: https://youtu.be/5t1e6tSqJ6U?t=220
+- This has been delivered and is fully functional and the `beta link` is here: https://datadex.itheum.com/
+- Itheum <> PlatON integration full explanation and background of project is given in this short video: https://www.youtube.com/watch?v=5t1e6tSqJ6U 
+- PlatON network via Metamask Wallet based login live demo video and full feature walkthrough demo video: https://youtu.be/5t1e6tSqJ6U?t=220
 
 <br/>
 
@@ -50,7 +50,7 @@
 
 <br/>
 
-3) You are no logged in and can use all the features of the Itheum Data DEX on the PlatON chain:
+3) You are now logged in and can use all the features of the Itheum Data DEX on the PlatON chain:
 
 <br/>
 
@@ -60,7 +60,7 @@
 
 <br/>
 
-4) For a detailed walk-though on all the features (Faucet, Sell Data, Buy Data, Data NFT etc), please view the walkthrough demo video here: https://youtu.be/5t1e6tSqJ6U?t=220
+4) For a detailed walk-though on all the features (Faucet, Sell Data, Buy Data, Data NFT etc), please view the detailed walkthrough demo video here: https://youtu.be/5t1e6tSqJ6U?t=220
 
 <br/>
 
@@ -79,7 +79,7 @@
 
 <br/>
 
-- This meeting happened with the Itheum and PlatON Core team on `8/12/2021`
+- This technical meeting happened with the Itheum and PlatON Core team on `8/12/2021`
 - The next steps for our collboraation are detailed here: https://github.com/Itheum/data-dex/wiki/PlatON-Integration-Notes
 
 <br/>
@@ -89,11 +89,11 @@
 <br/>
 
 ## Open Source Repository and Test Cases
-- All source code is completely Open Source and available under the following repositories:
+- All source code is completely `Open Source` and available under the following repositories:
 
 ### Itheum Data DEX
 - Source code is here: https://github.com/Itheum/data-dex
-- PlatON integration source code changes are highlighted in this ticket: https://github.com/Itheum/data-dex/issues/50
+- PlatON integration specefic source code changes are highlighted in this ticket: https://github.com/Itheum/data-dex/issues/50
 
 ### Itheum Core (Smart Contracts)
 - Source code is here: https://github.com/Itheum/itheumcore
