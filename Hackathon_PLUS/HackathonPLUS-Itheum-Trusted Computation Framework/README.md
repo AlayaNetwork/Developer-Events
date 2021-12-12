@@ -91,7 +91,10 @@ Block Explorer URL(Optional): https://devnetscan.platon.network/
 <br/>
 
 - This technical meeting happened with the Itheum and PlatON Core team on `8/12/2021`
-- The next steps for our collboraation are detailed here: https://github.com/Itheum/data-dex/wiki/PlatON-Integration-Notes
+- The next steps for our collaboration are detailed here: https://github.com/Itheum/data-dex/wiki/PlatON-Integration-Notes
+- The design guide is as follows and we are not awating the `Data Node` software from PlatON, we cannot proceed until then:
+
+![PlatOn - Itheum Integration](https://github.com/Itheum/architecture-diagrams/blob/main/partner_integrations.png)
 
 <br/>
 
