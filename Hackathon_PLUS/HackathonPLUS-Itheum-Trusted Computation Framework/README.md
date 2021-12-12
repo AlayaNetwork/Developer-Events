@@ -21,6 +21,7 @@
 - This has been delivered and is fully functional and the `beta link` is here: https://datadex.itheum.com/
 - Itheum <> PlatON integration full explanation and background of project is given in this short video: https://www.youtube.com/watch?v=5t1e6tSqJ6U 
 - PlatON network via Metamask Wallet based login live demo video and full feature walkthrough demo video: https://youtu.be/5t1e6tSqJ6U?t=220
+- The PlatON Live Demo + Q&A video is here : https://www.youtube.com/watch?v=rMETuETDyEE
 
 <br/>
 
@@ -92,7 +93,7 @@ Block Explorer URL(Optional): https://devnetscan.platon.network/
 
 - This technical meeting happened with the Itheum and PlatON Core team on `8/12/2021`
 - The next steps for our collaboration are detailed here: https://github.com/Itheum/data-dex/wiki/PlatON-Integration-Notes
-- The design guide is as follows and we are not awating the `Data Node` software from PlatON, we cannot proceed until then:
+- The design guide is as follows and we are now awaiting the `Data Node` software from PlatON, we cannot proceed until then:
 
 ![PlatOn - Itheum Integration](https://github.com/Itheum/architecture-diagrams/blob/main/partner_integrations.png)
 
@@ -107,7 +108,7 @@ Block Explorer URL(Optional): https://devnetscan.platon.network/
 
 ### Itheum Data DEX
 - Source code is here: https://github.com/Itheum/data-dex
-- PlatON integration specefic source code changes are highlighted in this ticket: https://github.com/Itheum/data-dex/issues/50
+- PlatON integration specific source code changes are highlighted in this ticket: https://github.com/Itheum/data-dex/issues/50
 
 ### Itheum Core (Smart Contracts)
 - Source code is here: https://github.com/Itheum/itheumcore
