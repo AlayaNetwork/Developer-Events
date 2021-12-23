@@ -31,7 +31,7 @@
 
 默认情况下，Samurai 连接到PlatON主网，也可以添加我们的RPC链接。
 
-### 添加自定义网络
+#### 添加自定义网络
 
 - 点击 **网络**-> **自定义RPC**。
 
@@ -45,26 +45,13 @@
 
 
 
-## 使用说明及文档
-
-API文档参考:
-
-[JSON](http://json.org/) 是一种轻量级的数据交换格式。它可以表示数字，字符串，值的有序序列以及名称/值对的集合。
-
-[JSON-RPC](http://www.jsonrpc.org/specification) 是一种无状态的轻量级远程过程调用(RPC)协议。首先，本规范定义了几种数据结构及其处理规则。它与传输无关，因为可以在同一过程中，通过套接字，通过HTTP或在许多各种消息传递环境中使用这些概念。它使用JSON ([RFC 4627](http://www.ietf.org/rfc/rfc4627.txt)) 作为数据格式。
-
 ## JavaScript API
 
 要从JavaScript应用程序内部与PlatON节点通信，请使用 [web3.js](https://github.com/AlayaNetwork/client-sdk-js) 库，该库为RPC方法提供了方便的接口。
 
-## 注意
-
-PlatON在升级到1.1.1版本之后，通过[兼容以太坊](https://github.com/PlatONnetwork/PIPs/blob/master/PIPs/PIP-2.md)扩展了 JSON-RPC 2.0，对 request 请求对象增加 bech32 字段，Booleans 类型。bech32 为 true 表示此次 rpc 调用中地址部分的编解码格式为 bech32，默认为 EIP55。并且支持了以太坊的RPC调用，[参考](https://geth.ethereum.org/docs/rpc/ns-eth).
-
-下面仅显示带有curl过程的RPC调用过程。实际上，您需要根据服务器的具体情况进行一些调整。例如，PlatON的可能调用过程是 `curl -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.alayascan.com`.
-
 ## JSON RPC API参考
 
+以Platon(https://rpc.plateye.com)为例：
 
 ***
 
@@ -82,7 +69,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_clientVersion","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -115,7 +102,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"web3_sha3","params":["0x68656c6c6f20776f726c64"],"id":64}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -141,7 +128,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_version","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_version","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -167,7 +154,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_listening","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_listening","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -193,7 +180,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_peerCount","params":[],"id":74}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","bech32":true,"method":"net_peerCount","params":[],"id":74}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -219,7 +206,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_protocolVersion","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_protocolVersion","params":[],"id":67}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -252,7 +239,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"platon_syncing","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"platon_syncing","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -290,7 +277,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_gasPrice","params":[],"id":73}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_gasPrice","params":[],"id":73}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -316,7 +303,7 @@ none
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_blockNumber","params":[],"id":83}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_blockNumber","params":[],"id":83}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -352,7 +339,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "latest"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBalance","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "latest"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -391,7 +378,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "0x0", "0x2"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getStorageAt","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3", "0x0", "0x2"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -427,7 +414,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionCount","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3","latest"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionCount","params":["lax1gp7h8k9ynm4ct5ev73j4qlwhr4g8zqxpnkqrx3","latest"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -462,7 +449,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockTransactionCountByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -496,7 +483,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockTransactionCountByNumber","params":["0xe8"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -533,7 +520,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5", "0x2"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lax14984xa8uuhkmer32s6tuz5e3valxa0ct68a0c5", "0x2"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -564,7 +551,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getCode","params":["lax14
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sign","params":["lax16xk7yhxd842s5l44x2k8t89v00sfcfcej8gsug", "Schoolbus"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sign","params":["lax16xk7yhxd842s5l44x2k8t89v00sfcfcej8gsug", "Schoolbus"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -611,7 +598,7 @@ params: [{
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sendTransaction","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sendTransaction","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -647,7 +634,7 @@ params: [{
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sendRawTransaction","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sendRawTransaction","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -681,7 +668,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_sendRawTransaction","para
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_call","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_call","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -710,7 +697,7 @@ None
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_chainId","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_chainId","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -738,7 +725,7 @@ None
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getAddressHrp","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getAddressHrp","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -776,7 +763,7 @@ params: [
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getProof","params":[see above],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getProof","params":[see above],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -836,7 +823,7 @@ params: [{
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_resend","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_resend","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -864,7 +851,7 @@ None
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactionsLength","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactionsLength","params":[],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -896,7 +883,7 @@ params: ['lat1wgs4njks2wm4s596prdktrvsnfayh0kzv5ntru']
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getPoolNonce","params":[see above],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getPoolNonce","params":[see above],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -939,7 +926,7 @@ None
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactions","params":[see above],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_pendingTransactions","params":[see above],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -991,7 +978,7 @@ params: [
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockHashAndIndex","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockHashAndIndex","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -1026,7 +1013,7 @@ params: [
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockNumberAndIndex","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByBlockNumberAndIndex","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -1103,7 +1090,7 @@ params: [
 
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByHash","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByHash","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 // Result
 {
   "id":1,
@@ -1129,7 +1116,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getRawTransactionByHash",
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_estimateGas","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_estimateGas","params":[{see above}],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1186,7 +1173,7 @@ Object - 块对象，如果未找到块，则为null：
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByHash","params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1241,7 +1228,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByNumber","params":["0x1b4", true],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getBlockByNumber","params":["0x1b4", true],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 ```
 
 结果参考platon_getBlockByHash。
@@ -1283,7 +1270,7 @@ Object - 交易对象，如果未找到交易，则为null：
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByHash","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1331,7 +1318,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByBlockHashAndIndex","params":["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 ```
 
 参考platon_getTransactionByHash。
@@ -1362,7 +1349,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionByBlockNumberAndIndex","params":["0x29c", "0x0"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 ```
 
 结果参考platon_getTransactionByHash.
@@ -1401,7 +1388,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getTransactionReceipt","params":["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"],"id":1}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1453,7 +1440,7 @@ params: [{
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newFilter","params":[{"topics":["0x12341234"]}],"id":73}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newFilter","params":[{"topics":["0x12341234"]}],"id":73}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1480,7 +1467,7 @@ None
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newBlockFilter","params":[],"id":73}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newBlockFilter","params":[],"id":73}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1507,7 +1494,7 @@ None
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newPendingTransactionFilter","params":[],"id":73}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_newPendingTransactionFilter","params":[],"id":73}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1542,7 +1529,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_uninstallFilter","params":["0xb"],"id":73}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_uninstallFilter","params":["0xb"],"id":73}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1591,7 +1578,7 @@ Array - 日志对象的数组，如果自上次轮询以来没有任何变化，
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterChanges","params":["0x16"],"id":73}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterChanges","params":["0x16"],"id":73}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
@@ -1636,7 +1623,7 @@ params: [
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterLogs","params":["0x16"],"id":74}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getFilterLogs","params":["0x16"],"id":74}' -H 'content-type: application/json'  https://rpc.plateye.com
 ```
 
 结果参考platon_getFilterChanges.
@@ -1664,7 +1651,7 @@ params: [{
 ##### 例子
 ```js
 // Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}' -H 'content-type: application/json'  https://rpc.alayascan.com
+curl -X POST --data '{"jsonrpc":"2.0","method":"platon_getLogs","params":[{"topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]}],"id":74}' -H 'content-type: application/json'  https://rpc.plateye.com
 ```
 
 结果参考platon_getFilterChanges.
@@ -1683,7 +1670,7 @@ none
 ##### 例子
 ```js
 // Request
-Curl -X POST --data '{"jsonrpc":"2.0","method":"platon_evidences","params":[],"id":74}' -H 'content-type: application/json'  https://rpc.alayascan.com
+Curl -X POST --data '{"jsonrpc":"2.0","method":"platon_evidences","params":[],"id":74}' -H 'content-type: application/json'  https://rpc.plateye.com
 
 // Result
 {
