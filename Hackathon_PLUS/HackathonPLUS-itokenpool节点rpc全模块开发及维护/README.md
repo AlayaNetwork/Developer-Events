@@ -24,7 +24,7 @@
 
 ## 浏览器插件使用方法：
 
-+ 下载[Samurai](https://github.com/AlayaNetwork/Samurai/releases)  在Chrome浏览器中导入
++ 下载[Samurai](https://github.com/AlayaNetwork/Samurai/releases)，在Chrome浏览器中导入
 + 解压Samurai插件包；
 + 打开Chrome浏览器，在地址栏输入`chrome://extensions/`并回车，进入到Chrome扩展程序管理页面；
 + 打开**开发者模式**开关，选择**加载已解压的扩展程序**，导入第2步解压的目录即可；
