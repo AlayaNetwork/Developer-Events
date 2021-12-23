@@ -51,7 +51,7 @@
 
 ## JSON RPC API参考
 
-以Platon(https://rpc.plateye.com)为例：
+以Platon https://rpc.plateye.com 为例：
 
 ***
 
