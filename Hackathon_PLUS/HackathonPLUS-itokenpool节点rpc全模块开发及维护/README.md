@@ -1,5 +1,7 @@
 # PlatON-Go-SDK开发报告
 
+#### 项目关联的Issue: [HackathonPLUS-itokenpool节点rpc全模块开发及维护](https://github.com/AlayaNetwork/Developer-Events/issues/16).
+
 本项目完成的相关信息如下:
 
 ## 节点rpc模块: 使用节点rpc进行链上信息获取 
@@ -22,12 +24,10 @@
 
 ## 浏览器插件使用方法：
 
-+ 下载Samurai(https://github.com/AlayaNetwork/Samurai/releases)，在Chrome浏览器中导入
++ 下载[Samurai](https://github.com/AlayaNetwork/Samurai/releases)  在Chrome浏览器中导入
 + 解压Samurai插件包；
 + 打开Chrome浏览器，在地址栏输入`chrome://extensions/`并回车，进入到Chrome扩展程序管理页面；
 + 打开**开发者模式**开关，选择**加载已解压的扩展程序**，导入第2步解压的目录即可；
-
-## 网络管理
 
 默认情况下，Samurai 连接到PlatON主网，也可以添加我们的RPC链接。
 
@@ -43,7 +43,7 @@
 
 
 
-#### 项目关联的Issue: [HackathonPLUS-itokenpool节点rpc全模块开发及维护](https://github.com/AlayaNetwork/Developer-Events/issues/16).
+
 
 ## 使用说明及文档
 
