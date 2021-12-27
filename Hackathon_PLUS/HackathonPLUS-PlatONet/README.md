@@ -1,20 +1,18 @@
-## 项目规划--项目进度
-
-- [x] 一、 使用dotnet连接alaya区块链，实现基本的查询功能。此阶段主要解决alaya区块链的连接问题，查询区块链中的基本信息等功能。(预计工期：2021年11月20日)
-
-- [x] 二、 实现dotnet sdk的基础功能。实现签名、转账、智能合约及相关基础操作。本阶段在第一阶段的基础上实现区块链基本功能的的操作。(预计工期：2021年12月20日)
-
-- [ ] 三、 使用dotnet实现内置合约数据的查询及相关调用。本阶段在前两阶段的基础上将内置合约的调用功能加入到dotnet sdk中。（预计工期：2022年1月5号）--正在进行中
-
-- [ ] 四、 相关教程及实例、文档编写。(预计工期：2022年1月20日)
 
 
+# PlatONet:PlatON/Alaya dotnet sdk开发报告
 
-## 相关教程
+本项目完成的相关信息如下:
 
-- [项目基本情况介绍及编译使用方法](tutorials.md)
+## 代码托管仓库
 
-- [使用dotnet连接alaya区块链教程](basic.md)
+项目名称为`PlatONet`, 代码托管地址: [https://github.com/RileyGe/PlatONet](https://github.com/RileyGe/PlatONet).
 
+## 相关联Issue
 
+项目关联的Issue: [HackathonPLUS - PlatONet: PlatON及Alaya网络的dotnet SDK](https://github.com/AlayaNetwork/Developer-Events/issues/5).
+
+## 使用说明及文档
+
+项目的文档: [https://rileyge.github.io/platonet-documents/](https://rileyge.github.io/platonet-documents/).
 
